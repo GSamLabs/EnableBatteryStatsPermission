@@ -10,7 +10,7 @@ standalone module is not needed.
 
 * How do I install this?  HELP!
 
-This mod requires that your device is rooted, and the Xposed framework is installed,
+This mod requires that your device is rooted, that the Xposed framework is installed,
 and that this module is enabled via the Xposed installer app.  After a phone reboot,
 your battery monitoring apps should start to work as they did before KitKat rolled
 around.
@@ -18,7 +18,7 @@ around.
 1. You must have ROOT on your phone.  If you do not, this is not for you.
 2. Install this package
 3. Download and install the Xposed installer if you do not yet have it: http://goo.gl/CKTWXZ
-4. Install the “Framework" in the "Xposed Installer" and activate "Enable Battery Stats Permission" in "Modules".
+4. Install the “Framework" in the "Xposed Installer" and activate "Enable BatteryStats Permission" in "Modules".
 5. Reboot
 6. Run your battery monitor of choice.
 
@@ -46,8 +46,8 @@ enforce that the calling application have the BATTERY_STATS permission.
 * Is this safe?
 
 Yes - the code is open source, and very simple.  Do keep in mind however that the 
-Xposed framework allows you to enable modules that may be very dangerous - this 
-module is not, but the  
+Xposed framework allows you to enable modules that may be very dangerous - but this 
+module is not one of them.  You can find the source here:  
 https://github.com/GSamLabs/EnableBatteryStatsPermission
 
 * I'm a developer, but my app still doesn't work in KitKat!
@@ -64,7 +64,7 @@ the form:
             }
 Then call your getService method to bind to the appropriate service.
 
-* I'm a developer, can I pull this code directy into my app?
+* I'm a developer, can I pull this code directly into my app?
 
 Yes - by all means.  Follow the great tutorial that the Xposed author has, and feel
 free to copy HookGetStatisticsMethodCall class directly into your app.
