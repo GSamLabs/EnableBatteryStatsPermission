@@ -5,8 +5,8 @@ Enable BATTERY_STATS Permission On KitKat - Xposed Module
 
 This Xposed mod will enable any Battery Monitor application which consumes Android 
 battery statistics to work when running KitKat (or later).  The app developer may 
-chose to integrate this function directly into their in which case this standalone
-module is not needed.
+chose to integrate this function directly into their app, in which case this 
+standalone module is not needed.
 
 * How do I install this?  HELP!
 
