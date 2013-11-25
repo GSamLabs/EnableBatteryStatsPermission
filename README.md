@@ -43,6 +43,9 @@ This uses the Xposed framework to provide an alternate implementation of the
 com.android.server.am.BatteryStatsService.getStatistics() method which will not
 enforce that the calling application have the BATTERY_STATS permission.
 
+In addition, this allows legacy apps who use the 'batteryinfo' service rather than the
+'batterystats' service to continue to function, since the only change was in the name.
+
 * Is this safe?
 
 Yes - the code is open source, and very simple.  Do keep in mind however that the 
@@ -52,20 +55,16 @@ https://github.com/GSamLabs/EnableBatteryStatsPermission
 
 * I'm a developer, but my app still doesn't work in KitKat!
 
-Google did two things in KitKat.  The first is that they changed the name of the
-battery stats service from 'batteryinfo' to 'batterystats'.  The second is that 
-they changed the BATTERY_STATS permission to be signature|system.  This mod will
-fix the second, but not the first.  To fix the first, you should do something of
-the form:
-			String batteryServiceName = "batterystats";
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT)
-            {
-                batteryServiceName = "batteryinfo";
-            }
-Then call your getService method to bind to the appropriate service.
+Check your logcat.  Google also changed how network statistics were retrieved,
+removing some methods and replacing them with others (getTcpBytesReceived was 
+removed for example).
 
 * I'm a developer, can I pull this code directly into my app?
 
 Yes - by all means.  Follow the great tutorial that the Xposed author has, and feel
 free to copy HookGetStatisticsMethodCall class directly into your app.
 https://github.com/rovo89/XposedBridge/wiki/Development-tutorial
+
+That said - I recommend simply copying your app into /system/priv-app/, or using a
+helper app similar (or identical) to:
+https://github.com/GSamLabs/GSamBatteryMonitor-RootCompanion
