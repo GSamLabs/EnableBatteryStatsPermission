@@ -51,7 +51,7 @@ public class HookGetStatisticsMethodCall implements IXposedHookLoadPackage {
     
     private static final String BATTERY_STATS_SERVICE_NAME = "com.android.server.am.BatteryStatsService";
     private static final String SERVICE_MANAGER_NAME = "android.os.ServiceManager";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static Field STATS_FIELD = null;
     // Get and modify the mStats field once - can do this statically on class load.
     static
